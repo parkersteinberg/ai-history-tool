@@ -7,6 +7,7 @@ export default function Home() {
 
   const [prompt, setPrompt] = useState('')
   const [response, setResponse] = useState('')
+  const [isGenerating, setIsGenerating] = useState(false)
 
   const handleTextChange = (event) => {
     // console.log(event.target.value)
@@ -14,11 +15,26 @@ export default function Home() {
     console.log(prompt)
   }
 
-  const handleGenerate = () => {
+  const handleGenerate = async () => {
+    // set isGenerating to true for a loading screen alter
+    setIsGenerating(true)
     console.log('here is what we\'ll be passing:', prompt)
     // hit he OPEN AI API?
     // then render the response below
     // use setResponse 
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ prompt })
+    }
+    const response = await fetch('/api/generate',options)
+    const data = await response.json()
+    const { output } = data;
+    console.log('data is', data)
+    setResponse(output.text)
+    setIsGenerating(false)
   }
 
   return (
@@ -52,6 +68,12 @@ export default function Home() {
           {/* if response state is not empty string, render Response component? */}
           <Response />
         </div>
+
+        {response && <div className="output">
+          <div className="output-content">
+            <p>{response}</p>
+          </div>
+        </div>}
 
         
       </main>
