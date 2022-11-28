@@ -47,7 +47,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to The Time Traveler
+          History Learning Made Easy
         </h1>
 
         <div>
@@ -62,18 +62,20 @@ export default function Home() {
           <button className="genereate-button" onClick={handleGenerate}>Generate!</button>
         </div>
 
-        <div className="response-container">
-          <br /><br />
-          <span className="response-span">Response below</span>
-          {/* if response state is not empty string, render Response component? */}
-          <Response />
-        </div>
 
-        {response && <div className="output">
-          <div className="output-content">
-            <p>{response}</p>
-          </div>
-        </div>}
+        {response && 
+          <div className="output">
+            <div className="response-container">
+              <br /><br />
+              <span className="response-span">About {prompt}:</span>
+              {/* if response state is not empty string, render Response component? */}
+              <Response />
+            </div>
+
+            <div className="output-content">
+              <p>{response}</p>
+            </div>
+          </div>}
 
         
       </main>
