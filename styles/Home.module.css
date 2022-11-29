@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+textarea #prompt {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
+
 .container {
   padding: 0 2rem;
 }
