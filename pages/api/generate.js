@@ -18,6 +18,7 @@ const generateAction = async (req, res) => {
     max_tokens: 250
   })
 
+  console.log('choices are', baseCompletion.data.choices)
   const basePromptOutput = baseCompletion.data.choices.pop()
   console.log(basePromptOutput)
 

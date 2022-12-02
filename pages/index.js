@@ -30,11 +30,17 @@ export default function Home() {
       },
       body: JSON.stringify({ prompt })
     }
-    const response = await fetch('/api/generate',options)
-    const data = await response.json()
+    const responseData = await fetch('/api/generate',options)
+    const data = await responseData.json()
     const { output } = data;
     console.log('data is', data)
-    setResponse(output.text)
+    setResponse(`${output.text}`)
+    
+    console.log('response state is:', response)
+
+    // splitResponse = response.split('\n');
+    // console.log('split text is: ', splitResponse)
+
     setIsGenerating(false)
   }
 
@@ -49,11 +55,11 @@ export default function Home() {
       },
       body: JSON.stringify({ prompt })
     }
-    const response = await fetch('/api/random',options)
-    const data = await response.json()
+    const responseData = await fetch('/api/random',options)
+    const data = await responseData.json()
     const { output } = data;
-    console.log('data is', data)
-    setResponse(output.text)
+    console.log('output is', output)
+    setResponse(`${output.text}`)
     setIsGeneratingRandom(false)
   }
 
@@ -89,19 +95,20 @@ export default function Home() {
         </div>
 
 
-        {response && 
+        {response && (
           <div className="output">
             <div className="response-container">
               <br /><br />
-              <span className="response-span">About:</span>
+              <h2 className="response-span">About:</h2>
               {/* if response state is not empty string, render Response component? */}
-              <Response />
             </div>
 
             <div className="output-content">
-              <p>{response}</p>
+              {/* <p style={{'white-space': 'pre-line;'}}>{response}</p> */}
+              <Response text={response}/>
             </div>
-          </div>}
+          </div>
+          )}
 
         
       </main>
