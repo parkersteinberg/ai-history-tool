@@ -8,6 +8,7 @@ export default function Home() {
   const [prompt, setPrompt] = useState('')
   const [response, setResponse] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
+  const [isGeneratingRandom, setIsGeneratingRandom] = useState(false)
 
   const handleTextChange = (event) => {
     // console.log(event.target.value)
@@ -37,6 +38,25 @@ export default function Home() {
     setIsGenerating(false)
   }
 
+  const generateRandom = async () => {
+    setIsGeneratingRandom(true)
+    console.log('here is what we\'ll be passing:', prompt)
+
+    const options = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ prompt })
+    }
+    const response = await fetch('/api/random',options)
+    const data = await response.json()
+    const { output } = data;
+    console.log('data is', data)
+    setResponse(output.text)
+    setIsGeneratingRandom(false)
+  }
+
   return (
     <div className={styles.container}>
       <Head>
@@ -58,8 +78,14 @@ export default function Home() {
           <textarea value={prompt} name="prompt" id="prompt" cols="40" rows="10" placeholder='What part of history do you want to learn about?' onChange={handleTextChange}></textarea>
         </div>
 
-        <div className="generate-button-div">
-          <button className="genereate-button" onClick={handleGenerate}>{isGenerating ? <p>Generating...</p> : <p>Generate</p>}</button>
+        <div id="buttons">
+          <div className="generate-button-div">
+            <button className="generate-button" onClick={handleGenerate}>{isGenerating ? <p>Generating...</p> : <p>Generate</p>}</button>
+          </div>
+
+          <div className="random-button">
+            <button className="generate-button" onClick={generateRandom}>{isGeneratingRandom ? <p>Generating Random...</p> : <p>Give me a random fact!</p>}</button>
+          </div>
         </div>
 
 
