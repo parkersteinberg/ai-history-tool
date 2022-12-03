@@ -77,20 +77,24 @@ export default function Home() {
         </h1>
 
         <div>
-          <span>Learn about any event or any person in history</span>
+          <span className={styles.subtitle}>Learn about any event or any person in history</span>
         </div>
 
         <div className="prompt-container">
-          <textarea value={prompt} name="prompt" id="prompt" cols="40" rows="10" placeholder='What part of history do you want to learn about?' onChange={handleTextChange}></textarea>
+          <textarea value={prompt} name="prompt" id="prompt" cols="40" rows="5" className={styles.textarea} placeholder='What part of history do you want to learn about?' onChange={handleTextChange}></textarea>
         </div>
 
-        <div id="buttons">
+        <div className={styles.buttons}>
           <div className="generate-button-div">
-            <button className="generate-button" onClick={handleGenerate}>{isGenerating ? <p>Generating...</p> : <p>Generate</p>}</button>
+            <button className={styles.button} onClick={handleGenerate}>{isGenerating ? <p>Generating...</p> : <p>Generate</p>}</button>
+          </div>
+
+          <div>
+            <p>OR</p>
           </div>
 
           <div className="random-button">
-            <button className="generate-button" onClick={generateRandom}>{isGeneratingRandom ? <p>Generating Random...</p> : <p>Give me a random fact!</p>}</button>
+            <button className={styles.button} onClick={generateRandom}>{isGeneratingRandom ? <p>Generating Random...</p> : <p>Give me a random fact!</p>}</button>
           </div>
         </div>
 

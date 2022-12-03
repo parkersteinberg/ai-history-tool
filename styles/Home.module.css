@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-textarea #prompt {
-  font-family: 'Montserrat', sans-serif;
+.textarea {
+  margin-top: 2rem;
 }
 
 .container {
@@ -9,21 +9,33 @@ textarea #prompt {
 }
 
 .main {
-  min-height: 100vh;
-  padding: 4rem 0;
+  min-height: 80vh;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* white-space: pre-line; */
 }
 
-.output-content {
+.header {
+  margin: 1rem;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  margin: 1rem 1rem;
+}
+
+/* .output-content {
   text-align: center;
   white-space: pre-line;
   color: rgba(255, 255, 255, 0.5);
-}
+} */
 
 .footer {
   display: flex;
@@ -32,6 +44,7 @@ textarea #prompt {
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
+  color:rgb(194, 187, 180)
 }
 
 .footer a {
@@ -39,6 +52,10 @@ textarea #prompt {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
+  color: white
+}
+.footer a:hover {
+  text-decoration: underline;
 }
 
 .title a {
@@ -53,9 +70,16 @@ textarea #prompt {
 }
 
 .title {
-  margin: 0;
+  margin: 2rem 0;
   line-height: 1.15;
   font-size: 4rem;
+}
+
+.subtitle {
+  margin-bottom: 2rem;
+  line-height: 1;
+  font-size: 1.25rem;
+  color:rgb(194, 187, 180)
 }
 
 .title,

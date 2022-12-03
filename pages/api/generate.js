@@ -6,7 +6,7 @@ const configuration = new Configuration({
 
 const openai = new OpenAIApi(configuration)
 
-const basePromptPrefix = 'Write a short summary about the following. Include the historical relevance. At the end, include URLs to further reading material in bullet format: '
+const basePromptPrefix = 'Write a short summary about the following. Include the historical relevance. At the end, include URLs to further reading material in bullet format, with the first being a link to a Wikipedia article: '
 const generateAction = async (req, res) => {
   // log prompt that we're going to be running
   const prompt = `${basePromptPrefix}${req.body.prompt}`
