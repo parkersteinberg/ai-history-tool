@@ -2,6 +2,8 @@
 
 .textarea {
   margin-top: 2rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
 .container {
@@ -29,6 +31,17 @@
 
 .button {
   margin: 1rem 1rem;
+  color: #e2e8f0;
+  background-color: #94a3b8;
+  box-shadow: none;
+  font-family: 'Montserrat', sans-serif;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.button:hover {
+  transform:scale(1.05,1.05);
+
 }
 
 /* .output-content {
@@ -44,7 +57,7 @@
   border-top: 1px solid #eaeaea;
   justify-content: center;
   align-items: center;
-  color:rgb(194, 187, 180)
+  color:#94a3b8
 }
 
 .footer a {
@@ -79,7 +92,7 @@
   margin-bottom: 2rem;
   line-height: 1;
   font-size: 1.25rem;
-  color:rgb(194, 187, 180)
+  color:#94a3b8;
 }
 
 .title,

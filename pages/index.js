@@ -81,7 +81,7 @@ export default function Home() {
         </div>
 
         <div className="prompt-container">
-          <textarea value={prompt} name="prompt" id="prompt" cols="40" rows="5" className={styles.textarea} placeholder='What part of history do you want to learn about?' onChange={handleTextChange}></textarea>
+          <textarea value={prompt} name="prompt" id="prompt" cols="40" rows="5" className={styles.textarea} placeholder='What would you like to learn about?' onChange={handleTextChange}></textarea>
         </div>
 
         <div className={styles.buttons}>
@@ -103,7 +103,7 @@ export default function Home() {
           <div className="output">
             <div className="response-container">
               <br /><br />
-              <h2 className="response-span">About:</h2>
+              <h1 className="response-span">About:</h1>
               {/* if response state is not empty string, render Response component? */}
             </div>
 
