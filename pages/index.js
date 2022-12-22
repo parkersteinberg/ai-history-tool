@@ -76,7 +76,7 @@ export default function Home() {
           Ask AI about historical events and people
         </h1>
 
-        <div>
+        <div className={styles.subtitleContainer}>
           <span className={styles.subtitle}>Learn about any event or any person in history</span>
         </div>
 
@@ -100,7 +100,7 @@ export default function Home() {
 
 
         {response && (
-          <div className="output">
+          <div className={styles.output}>
             <div className="response-container">
               <br /><br />
               <h1 className="response-span">About:</h1>
